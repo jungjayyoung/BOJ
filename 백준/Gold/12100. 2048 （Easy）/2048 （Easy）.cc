@@ -43,19 +43,7 @@ void bt(deque<int> r[], deque<int> c[],int cnt){
             c1[i][j] = c[i][j];
         }
     }
-
-
-//    for (int i = 0; i < n; i++) {
-//
-//        for (int j = 0; j < r[i].size(); j++) {
-//            cout << r[i][j] << " ";
-//        }
-//        cout << "\n";
-//
-//    }
-//    cout << "cnt: " << cnt;
-//    cout << "\n";
-
+    
     if (cnt >= 5) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < c[i].size(); j++) {
