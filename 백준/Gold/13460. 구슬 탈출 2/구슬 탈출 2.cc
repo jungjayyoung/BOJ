@@ -43,8 +43,6 @@ void bfs(){
             int next_red_y = cur_red_y + dy[i];
             int next_blue_x = cur_blue_x + dx[i];
             int next_blue_y = cur_blue_y + dy[i];
-
-
           
             // 빨강과 파란색이 같은 직선 상에 있는지 체크하고 빨강을 먼저 움직일지 파랑을 먼저 움직일지 결정
 
@@ -76,18 +74,17 @@ void bfs(){
                     blue_hole = false;
                     red_hole = false;
                     continue;
-                } else if (blue_hole) {
-
-                    blue_hole = false;
-                    continue;
-                }else if (red_hole) {
+                } else if (red_hole) {
 
                     ans = min(ans, cur_red_cnt + 1);
                     check = true;
                     red_hole = false;
                     continue;
-                }
+                }else if (blue_hole) {
 
+                    blue_hole = false;
+                    continue;
+                }
                 // 구멍이 없었다면 좌표 업데이트
                 next_red_x -= dx[i];
                 next_red_y -= dy[i];
@@ -138,15 +135,15 @@ void bfs(){
                     blue_hole = false;
                     red_hole = false;
                     continue;
-                }else if (blue_hole) {
-
-                    blue_hole = false;
-                    continue;
                 } else if (red_hole) {
 
                     ans = min(ans, cur_red_cnt + 1);
                     check = true;
                     red_hole = false;
+                    continue;
+                }else if (blue_hole) {
+
+                    blue_hole = false;
                     continue;
                 }
 
@@ -199,15 +196,15 @@ void bfs(){
                     blue_hole = false;
                     red_hole = false;
                     continue;
-                }else if (blue_hole) {
-
-                    blue_hole = false;
-                    continue;
                 } else if (red_hole) {
 
                     ans = min(ans, cur_red_cnt + 1);
                     check = true;
                     red_hole = false;
+                    continue;
+                }else if (blue_hole) {
+
+                    blue_hole = false;
                     continue;
                 }
 
@@ -261,15 +258,15 @@ void bfs(){
                     blue_hole = false;
                     red_hole = false;
                     continue;
-                }else if (blue_hole) {
-
-                    blue_hole = false;
-                    continue;
                 } else if (red_hole) {
 
                     ans = min(ans, cur_red_cnt + 1);
                     check = true;
                     red_hole = false;
+                    continue;
+                }else if (blue_hole) {
+
+                    blue_hole = false;
                     continue;
                 }
 
