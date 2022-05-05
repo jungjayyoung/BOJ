@@ -6,8 +6,7 @@ int n, m, h;
 int ans = 987;
 int visited[11][31]; // visited[a][b] a와 a+1이 b번째 가로선으로 연결됐다.
 
-// https://yabmoons.tistory.com/47 참고했다.
-// 너무나도 아름다운 사다리 게임 코드... 난 이게 왜 생각이 안났지...?
+
 bool ladder_game(){
 
     for (int i = 1; i <= n; i++) {
