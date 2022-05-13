@@ -12,7 +12,6 @@ char board[51][51];
 int ans = 87654;
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0, -1};
-int visited[51][51];
 int cache[51][51];
 
 
@@ -36,6 +35,7 @@ void bfs(){
         if (cur_x == n - 1 && cur_y == n - 1) {
 
             ans = min(ans, cache[cur_y][cur_x]);
+            continue;
 
         }
 
@@ -86,7 +86,7 @@ int main(){
 
     bfs();
 
-   
+
     cout << ans;
 
 
