@@ -2,7 +2,7 @@
 #include <vector>
 #include <queue>
 
-//queue<pair<int,int>> q; // 현재 합, 현재 인덱스
+
 using namespace std;
 
 vector<int> nums;
@@ -19,18 +19,9 @@ void dfs(int sum,int cnt){
         }
         return;
     }
-    for(int i=0;i<2;i++){
-        
-        // i == 0 이면 +
-        if(i == 0){
-            dfs(sum + cur_num,cnt+1);
-        }
-        
-        //i== 1이면 -
-        if(i == 1){
-            dfs(sum - cur_num,cnt+1);
-        }
-    }
+    
+    dfs(sum + cur_num,cnt+1);
+    dfs(sum - cur_num,cnt+1);
     
     
 }
