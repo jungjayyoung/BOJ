@@ -23,14 +23,7 @@ void solve(){
             visited[i] = 1;
         }
     }
-
-    if (q.empty()) {
-        check = true;
-        return;
-    }
-
-
-
+    
     while (!q.empty()) {
 
         int cur_singer = q.front();
@@ -44,18 +37,10 @@ void solve(){
 
             int next_singer = v[cur_singer][i];
 
-            if (visited[next_singer]) {
-                check = true;
-                return;
-            }
-
-            if(inDegree[next_singer] - 1 == 0 && !visited[next_singer]) {
-                visited[next_singer] = 1;
+            if(inDegree[next_singer] - 1 == 0 ) {
                 q.push(next_singer);
             }
-
-
-
+            
             inDegree[next_singer]--;
 
         }
