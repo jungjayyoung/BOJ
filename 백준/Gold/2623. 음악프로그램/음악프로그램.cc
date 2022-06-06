@@ -7,7 +7,6 @@ int n,m;
 vector<int> v[1001];
 vector<int> pd[101];
 vector<int> ans;
-int visited[1001];
 int visited2[1001][1001];
 int inDegree[1001];
 bool check = false;
@@ -20,18 +19,15 @@ void solve(){
     for (int i = 1; i <= n; i++) {
         if (inDegree[i] == 0) {
             q.push(i);
-            visited[i] = 1;
         }
     }
-    
+
     while (!q.empty()) {
 
         int cur_singer = q.front();
 
-
         q.pop();
         ans.push_back(cur_singer);
-
 
         for (int i = 0; i < v[cur_singer].size(); i++) {
 
@@ -40,7 +36,7 @@ void solve(){
             if(inDegree[next_singer] - 1 == 0 ) {
                 q.push(next_singer);
             }
-            
+
             inDegree[next_singer]--;
 
         }
