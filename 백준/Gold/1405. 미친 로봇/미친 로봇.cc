@@ -3,19 +3,14 @@
 
 using namespace std;
 
-int board[300][300]; // 150,150 에서 시작
 int visited[300][300];
-int s;
-int e;
-int n;
-int w;
+
 int num;
 
 int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, -1, 1};
 double dpr[4];
 double ans = 0;
-int t= 0;
 
 void dfs(int x, int y,int cnt, double pr){
 
