@@ -6,7 +6,6 @@ using namespace std;
 int n;
 
 int board[501][501];
-int visited[501][501];
 int cache[501][501]; // cache[y][x] x,y 에 도착했을 때 방문한 칸들의 최대 갯수가 저장된다.
 
 int dx[4] = {-1, 0, 1, 0};
@@ -32,8 +31,7 @@ int dfs(int x,int y){
         }
 
         if (board[y][x] < board[nexty][nextx]) {
-//            cout << "현재 방문 x,y: ";
-//            cout << x << ", " << y << "\n";
+
             cache[y][x] = max(cache[y][x], 1 + dfs(nextx, nexty));
         }
 
@@ -46,7 +44,6 @@ int main(){
 
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-
 
     cin >> n;
 
@@ -63,23 +60,9 @@ int main(){
 
         for (int x = 0; x < n; x++) {
 
-            //cout << x << ", " << y << " : 에서 시작 \n";
-
             if (cache[y][x] == -1) {
                 ans = max(ans, dfs(x, y));
             }
-//            cout << "ans: " << ans << "\n";
-//
-//            for (int yy = 0; yy < n; yy++) {
-//
-//                for (int xx = 0; xx < n; xx++) {
-//
-//                    cout << cache[yy][xx] << " ";
-//
-//                }
-//                cout << "\n";
-//            }
-//            cout << "\n";
 
         }
     }
