@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <deque>
 using namespace std;
 
 vector<string> v;
