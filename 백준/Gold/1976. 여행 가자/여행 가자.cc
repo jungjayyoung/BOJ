@@ -67,10 +67,7 @@ int main(){
             cin >> num;
 
             if (num == 1) {
-                if (find_parent(i) != find_parent(j)) {
-                    join_node(i, j);
-                }
-
+                join_node(i, j);
             }
         }
 
@@ -84,20 +81,16 @@ int main(){
     }
 
     int parent_city = find_parent(v[0]);
-    bool check = false;
 
-    for (int i = 1; i < v.size(); i++) {
+    for (int i = 0; i < v.size(); i++) {
         if (parent_city != find_parent(v[i])) {
-            check = true;
-            break;
+            cout << "NO";
+            return 0;
         }
     }
 
 
-    if (check) {
-        cout << "NO";
-    }else
-        cout << "YES";
+    cout << "YES";
 
 
 
