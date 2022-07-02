@@ -30,7 +30,7 @@ int main(){
         }
     }
 
-    for (int i = n - 1; i >= 1; i--) {
+    for (int i = n - 2; i >= 1; i--) {
         for (int j = i + 2; j <= n; j++) {
             if (arr[i] == arr[j] && dp[i + 1][j - 1]) {
                 dp[i][j] = true;
