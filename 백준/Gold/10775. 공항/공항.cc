@@ -5,46 +5,8 @@ using namespace std;
 
 
 int parent[100001];
-int tree_level[100001];
 int visited[100001];
 vector<int> v;
-
-int find_parent(int u){
-
-    if (parent[u] == u) {
-
-        return u;
-    }
-
-
-    return parent[u] = find_parent(parent[u]);
-
-
-}
-
-void join_node(int u,int v){
-
-    u = find_parent(u);
-    v = find_parent(v);
-
-    if (u == v) {
-        return;
-    }
-
-    if (tree_level[u] < tree_level[v]) {
-        parent[u] = v;
-        tree_level[u] += tree_level[v];
-    }else{
-        parent[v] = u;
-        tree_level[v] = u;
-    }
-
-
-    return;
-
-
-
-}
 
 int main(){
 
@@ -60,8 +22,6 @@ int main(){
     for (int i = 2; i <= g; i++) {
         parent[i] = i - 1;
     }
-
-    fill(tree_level, tree_level + g + 1, 1);
 
     int ans = 0;
 
