@@ -30,9 +30,6 @@ int main(){
 
     while (ss <= n - 1) {
 
-        if (ss == ee) {
-            break;
-        }
         if (sum >= s) {
             ans = min(ans, ee - ss + 1);
 
