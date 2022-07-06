@@ -4,7 +4,7 @@
 #define INF 270000000
 
 using namespace std;
-typedef long long ll;
+
 int dist[501];
 
 vector<pair<int, int>> v[501];
