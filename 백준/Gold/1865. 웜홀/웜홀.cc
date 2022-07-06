@@ -5,7 +5,7 @@
 
 using namespace std;
 typedef long long ll;
-ll dist[501];
+int dist[501];
 
 vector<pair<int, int>> v[501];
 
