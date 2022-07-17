@@ -81,9 +81,13 @@ int main(){
 
         check = false;
 
-        visited[a] = 1;
-        dfs(a, 0, a, b);
-        cout << cache[a][b] << "\n";
+        if (cache[a][b] == -1) {
+            visited[a] = 1;
+            dfs(a, 0, a, b);
+            cout << cache[a][b] << "\n";
+        }else{
+            cout << cache[a][b] << "\n";
+        }
 
     }
 //    for (int i = 1; i <= n; i++) {
