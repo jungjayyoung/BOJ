@@ -65,8 +65,6 @@ int main(){
 
         v[a].push_back({b, c});
         v[b].push_back({a, c});
-        cache[a][b] = c;
-        cache[b][a] = c;
 
 
     }
@@ -90,14 +88,6 @@ int main(){
         }
 
     }
-//    for (int i = 1; i <= n; i++) {
-//
-//        for (int j = 1; j <= n; j++) {
-//
-//            cout << "cache[i][j]: " << i << " " << j << " " << cache[i][j] << "\n";
-//
-//        }
-//    }
 
     return 0;
 }
