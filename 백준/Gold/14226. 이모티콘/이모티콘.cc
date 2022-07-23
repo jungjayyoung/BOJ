@@ -70,7 +70,7 @@ int main(){
 
 
     for (int i = 0; i <= 1001; i++) {
-        if(dp[s][i] == -1 || dp[s][i] == 0) continue;
+        if(dp[s][i] == -1) continue;
         ans = min(ans, dp[s][i]);
     }
 
