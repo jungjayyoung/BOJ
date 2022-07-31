@@ -5,16 +5,6 @@ using namespace std;
 
 typedef long long ll;
 
-ll getGCD(ll n, ll m){
-    if (n < m) {
-        swap(n, m);
-    }
-    if( n % m == 0) return m;
-
-
-    return getGCD(m, n % m);
-}
-
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
@@ -72,6 +62,7 @@ int main(){
             }
 
             down = stoll(d);
+            
             if (!not_inf.empty()) {
                 up = stoll(total_num) - stoll(not_inf);
             }else{
@@ -79,7 +70,7 @@ int main(){
             }
 
 
-            ll a = getGCD(down, up);
+            ll a = gcd(down, up);
             down = down / a;
             up = up / a;
 
@@ -98,7 +89,7 @@ int main(){
 
             up = stoll(total_num);
             down = stoll(d);
-            ll a = getGCD(up, down);
+            ll a = gcd(up, down);
 
             up = up / a;
             down = down / a;
