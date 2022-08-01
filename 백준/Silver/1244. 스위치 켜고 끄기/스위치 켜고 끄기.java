@@ -61,12 +61,14 @@ public class Main {
 				
 			}
 		}
+		int cnt = 0;
 		
 		for(int i = 1; i<=n;i++) {
 			System.out.print(arr[i] + " ");
-			
-			if((i % 20) == 0) {
+			cnt++;
+			if(cnt == 20) {
 				System.out.println();
+				cnt = 0;
 			}
 		}
 		
