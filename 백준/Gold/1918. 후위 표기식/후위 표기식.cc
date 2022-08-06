@@ -2,12 +2,8 @@
 #include <stack>
 #include <string>
 
-
-
 using namespace std;
 
-stack<char> g;//괄호를 담을 스택
-stack<char> alp;//문자를 담을 스택
 stack<char> op;//연산자를 담을 스택
 
 
