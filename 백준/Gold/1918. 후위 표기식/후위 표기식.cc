@@ -40,7 +40,7 @@ int main(){
                 }
             }else if(s[i] == '*' || s[i] =='/'){
 
-                while (!op.empty() && (op.top() == '*' || op.top() == '/')) {
+                if(op.top() == '*' || op.top() == '/'){
                     cout << op.top();
                     op.pop();
                 }
