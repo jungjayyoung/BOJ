@@ -9,7 +9,7 @@ int num[12];
 int op[4];
 int maxx = -1000000001;
 int minn = 1000000001;
-int visited[12];
+
 
 void bt(int cnt,int sum){
 
@@ -18,6 +18,7 @@ void bt(int cnt,int sum){
 
         maxx = max(maxx, sum);
         minn = min(minn, sum);
+
 
         return;
     }
@@ -34,9 +35,8 @@ void bt(int cnt,int sum){
                 bt(cnt+1,sum - num[cnt]);
             }else if(i == 2){
                 bt(cnt+1,sum * num[cnt]);
-            }else if(i ==3){
-               int tmp = sum;
-                bt(cnt+1,(int)(tmp / num[cnt]));
+            }else if(i == 3){
+                bt(cnt+1,((int)(sum / num[cnt])));
             }
             op[i]++;
 
@@ -51,6 +51,8 @@ void bt(int cnt,int sum){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
+
+
 
     cin >> n;
 
