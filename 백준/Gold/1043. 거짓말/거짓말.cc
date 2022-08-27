@@ -121,10 +121,7 @@ int main(){
             if(find_parent(j) == find_parent(0)){
 
                 check = true;
-                for (int k: party[i]) {
-                    join_node(k, 0);
-
-                }
+                
                 break;
             }
         }
