@@ -9,7 +9,6 @@ int n,m;
 
 int board[101][101];
 int dist[101][101];
-bool visited[101][101];
 int dx[] = {-1,0,1,0};
 int dy[] = {0, 1, 0, -1};
 
