@@ -47,12 +47,8 @@ int main(){
 
         pq.pop();
 
-        if(visited[cury][curx]) continue;
-
-        visited[cury][curx] = true;
-
         if (curx == m && cury == n) {
-            
+
             break;
         }
         for (int i = 0; i < 4; i++) {
@@ -63,7 +59,7 @@ int main(){
             if(nextx < 1 || nexty < 1 || nextx > m || nexty > n) continue;
 
 
-            if (!visited[nexty][nextx] && dist[nexty][nextx] > weight + next_weight) {
+            if (dist[nexty][nextx] > weight + next_weight) {
                 dist[nexty][nextx] = weight + next_weight;
                 pq.push({dist[nexty][nextx], {nextx, nexty}});
             }
