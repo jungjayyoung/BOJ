@@ -9,7 +9,6 @@ using namespace std;
 int n, m;
 int dist[201];
 int trace[201];
-int ans[201][201];
 
 vector<pair<int,int>> v[201];
 
@@ -18,12 +17,6 @@ int main(){
     cin.tie(0);
 
     cin >> n >> m;
-
-    fill(&ans[0][0], &ans[201][0], INT_MAX);
-
-    for (int i = 1; i <= n; i++) {
-        ans[i][i] = 0;
-    }
 
     for (int i = 0; i < m; i++) {
 
@@ -67,6 +60,8 @@ int main(){
             }
         }
 
+        // 시작노드는 i 이다
+        // 도착 노드가 j 가 된다.
         for (int j = 1; j <= n; j++) {
 
             if(i == j)
