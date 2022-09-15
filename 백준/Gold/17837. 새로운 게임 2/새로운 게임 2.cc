@@ -45,8 +45,6 @@ int main(){
 
     int turn = 1;
 
-    bool check = false;
-
     while(true){
 
         if (turn > 1000) {
@@ -65,8 +63,7 @@ int main(){
 
             int nextx = cur_x + dx[cur_dir - 1];
             int nexty = cur_y + dy[cur_dir - 1];
-
-
+            
             // 다음 칸이 파란 색일 때
             // 파란색인 경우에는 해당 말의 방향을 반대로 바꿔주고
             // cur_dir, nextx,nexty 도 갱신해준다.
@@ -101,11 +98,7 @@ int main(){
                 if (nextx < 1 || nexty < 1 || nextx > n || nexty > n || board_color[nexty][nextx] == 2) continue;
                 check2 = false;
             }
-
-
-
-
-
+            
             if(board_color[nexty][nextx] == 0){ // 흰색일 때
                 // 먼저 i번 말이 있는 칸에 다른 말들이 있는지 체크
                 int cnt = 0;
@@ -158,8 +151,6 @@ int main(){
             }
 
         }
-
-
         turn++;
 
     }
