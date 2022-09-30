@@ -22,55 +22,53 @@ int main(){
         return 0;
     }
     if(n > 99) {
-        ans += (ll)90 * 2;
+        ans +=90 * 2;
     }else{
-        ans += (ll)(n - 9) * 2;
+        ans += (n - 9) * 2;
         cout << ans;
         return 0;
     }
     if(n > 999) {
-        ans += (ll)900 * 3;
+        ans +=900 * 3;
     }else{
-        ans += (ll)(n - 99) * 3;
+        ans += (n - 99) * 3;
         cout << ans;
         return 0;
     }
     if(n > 9999) {
-        ans += (ll)9000 * 4;
+        ans +=9000 * 4;
     }else{
-        ans += (ll)(n - 999) * 4;
+        ans += (n - 999) * 4;
         cout << ans;
         return 0;
     }
     if(n > 99999) {
-        ans += (ll)90000 * 5;
+        ans +=90000 * 5;
     }else{
-        ans += (ll)(n - 9999) * 5;
+        ans += (n - 9999) * 5;
         cout << ans;
         return 0;
     }
     if(n > 999999) {
-        ans += (ll)900000 * 6;
+        ans +=900000 * 6;
     }else{
-        ans += (ll)(n - 99999) * 6;
+        ans += (n - 99999) * 6;
         cout << ans;
         return 0;
     }
     if(n > 9999999) {
-        ans += (ll)9000000 * 7;
+        ans +=9000000 * 7;
     }else{
-        ans += (ll)(n - 999999) * 7;
+        ans += (n - 999999) * 7;
+        cout << ans;
+        return 0;
+    }if(n > 99999999) {
+        ans +=90000000 * 8;
+    }else{
+        ans += (n - 9999999) * 8;
         cout << ans;
         return 0;
     }
-    if(n > 99999999) {
-        ans += (ll)90000000 * 8;
-    }else{
-        ans += (ll)(n - 9999999) * 8;
-        cout << ans;
-        return 0;
-    }
-
 
 
     cout << ans + 9;
