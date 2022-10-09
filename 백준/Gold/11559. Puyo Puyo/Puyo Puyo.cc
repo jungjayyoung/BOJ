@@ -15,6 +15,27 @@ int cnt;
 vector<pair<int,int>> tmp,v;
 queue<pair<int,int>> q;
 
+void down(){
+
+    for (int x = 0; x < 6; x++) {
+
+        for (int y = 10; y >= 0; y--) {
+
+            for (int yy = 11; yy >= y; yy--) {
+
+                if (board[y][x] != '.' && board[yy][x] == '.') {
+                    board[yy][x] = board[y][x];
+                    board[y][x] = '.';
+                    break;
+                }
+
+            }
+        }
+    }
+
+
+}
+
 void bfs(char a){
 
     while (!q.empty()) {
@@ -97,22 +118,7 @@ int main(){
         }
 
 
-        for (int i = 10; i >= 0; i--) {
-
-            for (int j = 0; j < 6; j++) {
-
-                if(board[i][j] == '.') continue;
-                int tmpp = i;
-
-                while (1) {
-                    if(tmpp == 11 || board[tmpp+1][j] != '.') break;
-
-                    board[tmpp + 1][j] = board[tmpp][j];
-                    board[tmpp][j] = '.';
-                    tmpp++;
-                }
-            }
-        }
+        down();
 
         // 터진게 없으면 나간다.
         if (!is_end){
