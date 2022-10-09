@@ -10,10 +10,10 @@ int dx[] = {-1, 0, 1, 0};
 int dy[] = {0, 1, 0, -1};
 bool is_end = false;
 bool visited[12][6];
-int cnt;
+int cnt = 0;
 
 vector<pair<int,int>> tmp,v;
-queue<pair<int,int>> q;
+
 
 void down(){
 
@@ -36,36 +36,22 @@ void down(){
 
 }
 
-void bfs(char a){
+void dfs(int x, int y,char a){
+    
+    for (int i = 0; i < 4; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        if(nx < 0 || ny < 0 || nx >= 6 || ny >= 12) continue;
+        if(board[ny][nx] != a) continue;
+        if(visited[ny][nx] == true) continue;
 
-    while (!q.empty()) {
-
-        int curx = q.front().first;
-        int cury = q.front().second;
-
-        q.pop();
-
-        for (int i = 0; i < 4; i++) {
-            int nx = curx + dx[i];
-            int ny = cury + dy[i];
-
-            if(nx <0 || ny < 0 || nx >= 6 || ny >= 12) continue;
-            if(board[ny][nx] != a) continue;
-            if(visited[ny][nx]) continue;
-
-            cnt++;
-            visited[ny][nx] = true;
-            tmp.push_back({nx, ny});
-            q.push({nx, ny});
-
-        }
-
+        tmp.push_back({nx, ny});
+        visited[ny][nx] = 1;
+        cnt++;
+        dfs(nx, ny,a);
     }
 
 }
-
-
-
 
 int main(){
 
@@ -83,28 +69,30 @@ int main(){
     int ans = 0;
     while (true) {
 
+
         is_end = false;
+
         fill(&visited[0][0], &visited[12][0], 0);
         v.clear();
-
-        for (int y = 0; y < 12; y++) {
+        
+        for (int y = 11; y >= 0; y--) {
             for (int x = 0; x < 6; x++) {
 
                 if(board[y][x] != '.' && !visited[y][x]){
                     cnt = 1;
-                    visited[y][x] = true;
-                    q.push({x, y});
                     tmp.push_back({x, y});
-                    bfs(board[y][x]);
-
+                    visited[y][x] = true;
+                    dfs(x, y,board[y][x]);
+                    
                     if (cnt >= 4) {
-                        is_end = true;
+
                         for (int i = 0; i < tmp.size(); i++) {
                             v.push_back(tmp[i]);
                         }
+                        is_end = true;
                     }
+                    tmp.clear();
                 }
-                tmp.clear();
 
             }
         }
@@ -118,8 +106,9 @@ int main(){
         }
 
 
+        // 아래로 내리기
         down();
-
+        
         // 터진게 없으면 나간다.
         if (!is_end){
             break;
