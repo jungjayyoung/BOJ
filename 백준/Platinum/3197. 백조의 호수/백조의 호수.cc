@@ -106,7 +106,7 @@ int main(){
                 v.push_back({x, y});
             }
 
-            if (map[y][x] != 'X') {
+            if (map[y][x] == '.' || map[y][x] == 'L') {
                 water_q.push({x, y});
             }
         }
