@@ -2,17 +2,17 @@
 #include <vector>
 #include <algorithm>
 
-#define NMAX 9876543210
+#define NMAX 987654321
 
-typedef long long ll;
+
 using namespace std;
 int v,e;
 
-vector<pair<pair<ll,ll>,ll>> road;
+vector<pair<pair<int,int>,int>> road;
 
-ll dist[401][401];
-ll ans = NMAX;
-ll sum = 0;
+int dist[401][401];
+int ans = NMAX;
+int sum = 0;
 
 
 int main(){
