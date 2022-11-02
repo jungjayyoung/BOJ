@@ -76,7 +76,7 @@ int main(){
             if (map[y][x] == '1') {
                 int cntt = 1;
                 vector<int> v;
-                v.clear();
+                //v.clear();
 
                 for (int i = 0; i < 4; i++) {
                     int nx = x + dx[i];
