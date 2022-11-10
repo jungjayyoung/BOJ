@@ -48,12 +48,12 @@ int main(){
 
         queue<pair<pair<int,int>,pair<int,int>>> q;
 
-        fill(&visited[0][0][0], &visited[51][0][0], 30000);
+        fill(&visited[0][0][0], &visited[51][0][0], 3000);
         q.push({{sx,sy},{i,0}});
-        visited[sy][sx][0] = 30000;
-        visited[sy][sx][1] = 30000;
-        visited[sy][sx][2] = 30000;
-        visited[sy][sx][3] = 30000;
+        visited[sy][sx][0] = 3000;
+        visited[sy][sx][1] = 3000;
+        visited[sy][sx][2] = 3000;
+        visited[sy][sx][3] = 3000;
         while (!q.empty()) {
 
             int x = q.front().first.first;
@@ -76,7 +76,6 @@ int main(){
             if (map[ny][nx] == '#' && nx == ex && ny == ey) {
 
                 if (visited[ny][nx][dir] > cnt) {
-                    visited[ny][nx][dir] = cnt;
                     ans = min(ans, cnt);
                 }
             }
