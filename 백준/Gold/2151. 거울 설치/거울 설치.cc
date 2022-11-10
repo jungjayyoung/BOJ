@@ -16,10 +16,6 @@ int ans = 3000;
 bool check = false;
 vector<pair<int,int>> v;
 
-// 설치하지 않는 경우를 우선적으로 생각한다.
-
-//0: 서 1: 남 2: 동 3: 북
-
 int main(){
 
     ios_base::sync_with_stdio(false);
@@ -50,10 +46,6 @@ int main(){
 
         fill(&visited[0][0][0], &visited[51][0][0], 3000);
         q.push({{sx,sy},{i,0}});
-        visited[sy][sx][0] = 3000;
-        visited[sy][sx][1] = 3000;
-        visited[sy][sx][2] = 3000;
-        visited[sy][sx][3] = 3000;
         while (!q.empty()) {
 
             int x = q.front().first.first;
