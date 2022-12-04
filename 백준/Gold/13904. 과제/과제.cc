@@ -25,6 +25,7 @@ struct cmp2{
         if (a.second == b.second) {
             return a.first > b.first;
         }else{
+            // 점수가 다를 경우 점수가 더 낮은 것이 top에 오도록 한다.
             return a.second > b.second;
         }
     }
@@ -51,23 +52,19 @@ int main(){
     for (int i = 0; i < v.size(); i++) {
 
         // 1. 마감일이 짧은 것을 먼저
-       if (pq.size() < v[i].first) {
+        if (pq.size() < v[i].first) {
             pq.push({v[i].first, v[i].second});
-
             //2. 만약에 현재 pq의 탑보다 점수가 큰 경우
         } else if (pq.top().second < v[i].second) {
-           pq.pop();
-           pq.push({v[i].first, v[i].second});
+            pq.pop();
+            pq.push({v[i].first, v[i].second});
         }
-        //cout << v[i].first << " " << v[i].second << "\n";
 
     }
 
     int sum = 0;
-    //cout << "\n";
 
     while (!pq.empty()) {
-        //cout << pq.top().first << " " << pq.top().second << "\n";
         sum += pq.top().second;
         pq.pop();
     }
