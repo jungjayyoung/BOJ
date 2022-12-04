@@ -5,17 +5,17 @@
 #include <functional>
 using namespace std;
 
-// 1. 과제 점수가 높은 순으로
-// 2. 마감일이 짧은 순으로
+// 1. 마감일이 짧은 것을 우선
+// 2. 마감일이 동일할 경우 점수가 높은 것으로
 
 vector<pair<int,int>> v;
 
 bool cmp(pair<int,int> a, pair<int,int> b){
 
-    if (a.first == b.first) {
-        return a.second > b.second;
-    } else {
+    if (a.first != b.first) {
         return a.first < b.first;
+    }else{
+        return a.second > b.second;
     }
 
 }
@@ -47,25 +47,18 @@ int main(){
     sort(v.begin(), v.end(), cmp);
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, cmp2> pq;
-    int day = 1;
 
     for (int i = 0; i < v.size(); i++) {
 
-        while (!pq.empty() && v[i].first < day) {
-            if (pq.top().second > v[i].second) {
-                break;
-            }
-            pq.pop();
-            day--;
-        }
-        // 1. 점수 높은 것을 먼저
-       if (day <= v[i].first) {
+        // 1. 마감일이 짧은 것을 먼저
+       if (pq.size() < v[i].first) {
             pq.push({v[i].first, v[i].second});
-            day++;
+
             //2. 만약에 현재 pq의 탑보다 점수가 큰 경우
+        } else if (pq.top().second < v[i].second) {
+           pq.pop();
+           pq.push({v[i].first, v[i].second});
         }
-
-
         //cout << v[i].first << " " << v[i].second << "\n";
 
     }
