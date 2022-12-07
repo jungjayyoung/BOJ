@@ -7,7 +7,6 @@ int p, ns, t;
 
 vector<int> v[5001];
 vector<int> path;
-int visited[5001];
 bool check = false;
 int ans = 0;
 
@@ -24,14 +23,11 @@ void dfs(int cur,int num){
     for (int i = 0; i < v[cur].size(); i++) {
         int next = v[cur][i];
 
-        if (!visited[next]) {
-            visited[next] = 1;
-            path.push_back(next);
-            dfs(next,num + 1);
-            if(check) return;
-            visited[next] = 0;
-            path.pop_back();
-        }
+        path.push_back(next);
+        dfs(next,num + 1);
+        if(check) return;
+        path.pop_back();
+
 
     }
 
@@ -52,7 +48,6 @@ int main(){
     }
 
     path.push_back(1);
-    visited[1] = 1;
     dfs(1, 1);
 
     cout << ans << "\n";
