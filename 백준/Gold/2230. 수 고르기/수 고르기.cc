@@ -28,22 +28,23 @@ int main(){
     ll ans = 9876543211;
 
     while (j < n && i < n) {
-        ll res = abs(v[i] - v[j]);
-        if (res >= m) {
 
-            if (ans > res) {
-                ans = res;
+        if (abs(v[i] - v[j]) >= m) {
+            
+            if(ans > abs(v[i] - v[j])){
+                ans = abs(v[i] - v[j]);
             }
-
             i++;
-            if (i >= j)
+            if(i >= j)
                 j++;
-
-        } else {
+        }else{
             j++;
         }
+
     }
+
+
     cout << ans;
 
-    return 0;
+
 }
