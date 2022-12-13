@@ -27,7 +27,7 @@ int main(){
     int j = 0;
     ll ans = 9876543211;
 
-    while (j < n && i < n) {
+    while (j < n) {
 
         if (abs(v[i] - v[j]) >= m) {
             
