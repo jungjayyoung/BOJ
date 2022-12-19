@@ -4,10 +4,7 @@
 
 using namespace std;
 
-
 int n;
-int visited[101];
-
 vector<int> v;
 
 int main(){
@@ -21,14 +18,6 @@ int main(){
         int num;
         cin >> num;
         v.push_back(num);
-    }
-    if (n == 1) {
-        if (v[0] > 1440) {
-            cout << -1;
-        } else {
-            cout << v[0];
-        }
-        return 0;
     }
 
     sort(v.begin(), v.end());
