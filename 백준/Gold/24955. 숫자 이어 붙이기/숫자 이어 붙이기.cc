@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 #include <cmath>
 #define MOD 1000000007
 using namespace std;
@@ -32,7 +31,7 @@ void dfs(ll num,ll cur_idx,ll goal){ // 현재 문자열 숫자, 목표 대문 �
             int zero_cnt = int(log10(next_num)) + 1;
 
             ll tmp = 1;
-            for (int j = 0; j < zero_cnt; j++) {
+            for (int j = 0; j < zero_cnt    ; j++) {
                 tmp = (tmp * 10) % MOD;
             }
             ll zeroAddedNum = ((num % MOD) * (tmp % MOD)) % MOD;
