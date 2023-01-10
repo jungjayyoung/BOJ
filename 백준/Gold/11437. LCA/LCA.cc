@@ -10,7 +10,6 @@ int n, m;
 
 vector<int> v[50001];
 int parent[50001];
-int tree_level[50001];
 int visited[50001];
 
 
@@ -27,7 +26,6 @@ void dfs(int cur,int pre){
         }
 
     }
-
 
 }
 
@@ -75,11 +73,7 @@ int main() {
 
 
         find_parent(a);
-
-
         cout << find_parent(b) << "\n";
-
-
 
     }
 
