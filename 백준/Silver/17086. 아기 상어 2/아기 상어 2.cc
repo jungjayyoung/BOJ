@@ -21,7 +21,6 @@ void bfs(int x, int y){
 
     q.push({{x, y}, 0});
     visited[y][x] = 1;
-    int ans2 = 54321;
 
     while (!q.empty()) {
 
@@ -32,8 +31,8 @@ void bfs(int x, int y){
         q.pop();
 
         if (map[cury][curx] == 1) {
-            //cout << x << " " << y << " " << cnt << "\n";
-            ans2 = min(ans2, cnt);
+            ans = max(ans, cnt);
+            return;
         }
 
 
@@ -52,8 +51,6 @@ void bfs(int x, int y){
 
 
     }
-
-    ans = max(ans, ans2);
 
 }
 
