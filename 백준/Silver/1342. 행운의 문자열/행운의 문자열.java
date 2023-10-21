@@ -1,89 +1,77 @@
+
 import java.io.*;
 import java.util.*;
 
 
 public class Main {
 
-	static List<Character> c; 
+	static char[] c; 
 	static String s;
 	static int[] visited;
 	static int cntt = 0;
-	static int[] alp = new int[27];
-	
-	static void bt(int cnt,String str) {
-		
-		if(cnt == s.length()) {
-			
-			boolean check = false;
-			
-			for(int i = 1; i < str.length();i++) {
-				
-				if(str.charAt(i) == str.charAt(i-1)) {
-					check = true;
-					break;
-				}
-			}
-			
-			if(!check) {
-				cntt++;
-			}
-			
-			return;
-		}
-		
-		
-		
-		for(int i = 0; i < s.length(); i++) {
-
-			if(visited[i] == 0) {
-				
-				visited[i] = 1;
-				String tmp = str;
-				tmp = tmp + c.get(i);
-				bt(cnt +1,tmp);
-				visited[i] = 0;
-			}
-			
-			
-		}
-		
-		
-	}
 	
 	public static void main(String[] args) throws IOException{
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		s = br.readLine();
-		c = new ArrayList<Character>();
+		c = s.toCharArray();
 		visited = new int[s.length()];
 		
-		for(int i = 0; i < s.length();i++) {
+		Arrays.sort(c);
+		do {
 			
-			c.add(s.charAt(i));
-			alp[s.charAt(i) - 'a']++;
-		}
-		
-		bt(0,"");
-
-		
-		for(int i = 0; i <27;i++) {
+			boolean check = false;
 			
-			if(alp[i] > 1) {
-				cntt /= factorial(alp[i]);
+			for(int i = 1; i < s.length();i++) {
+				
+				if(c[i-1] == c[i]) {
+					check = true;
+					break;
+				}
+				
 			}
 			
-		}
+			if(!check) {
+				cntt++;
+			}
+			
+			
+		}while(nextPermutation(c));
+		
+		
+		
 		System.out.println(cntt);
 	}
 	
-	static int factorial(int n) {
+	static boolean nextPermutation(char[] str) {
 		
-		if(n == 1) {
-			return 1;
+		int i = s.length() - 1;
+		
+		while(i > 0 && str[i-1] >= str[i]) i--;
+		
+		if(i == 0) {
+			return false;
 		}
 		
-		return n * factorial(n-1);
+		int j = s.length() - 1;
+		while(str[i-1] >= str[j]) j--;
+		
+		swap(str, i-1 ,j);
+		
+		int k = s.length() - 1;
+		
+		
+		while(i < k) swap(str,i++,k--);
+		
+		return true;
+		
+	}
+	
+	public static void swap(char[] c,int i, int j) {
+		
+		char tmp = c[i]; c[i] = c[j]; c[j] = tmp;
+		
 	}
 
 }
